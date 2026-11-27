@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherNow: City Weather Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="dashboard">
+    <header>
+      <div class="brand-row">
+        <h1><img class="logo" src="assets/logo.png" alt=""><span>Weather<span class="accent">Now</span></span></h1>
+        <p class="tagline">Check the weather, plan your day!</p>
+      </div>
+      <form class="search-form" role="search">
+        <label for="city-input" class="visually-hidden">City name</label>
+        <div class="search-row">
+          <input type="text" id="city-input" name="city" autocomplete="off" placeholder="Enter city name (e.g. Hyderabad)" required>
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </header>
+
+    <section class="current-card" aria-labelledby="current-city">
+      <img class="current-icon" src="assets/partly-big.png" alt="Partly cloudy">
+      <div class="current-main">
+        <h2 id="current-city" class="current-city">Hyderabad</h2>
+        <p class="current-temp">32°C</p>
+        <p class="current-condition">Partly Cloudy</p>
+      </div>
+      <dl class="current-details">
+        <div>
+          <img class="detail-icon" src="assets/wind.png" alt="">
+          <dt>Wind Speed</dt>
+          <dd class="current-wind">12 km/h</dd>
+        </div>
+        <div>
+          <img class="detail-icon" src="assets/drop.png" alt="">
+          <dt>Humidity</dt>
+          <dd class="current-humidity">65%</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="forecast-title">
+      <h2 id="forecast-title" class="visually-hidden">7-day forecast (sample data)</h2>
+      <ul class="forecast-row">
+        <li class="forecast-card">
+          <h3 class="forecast-day">Mon</h3>
+          <img class="forecast-icon" src="assets/sunny.png" alt="Sunny">
+          <p class="forecast-max">34°C</p>
+          <p class="forecast-min">22°C</p>
+        </li>
+        <li class="forecast-card">
+          <h3 class="forecast-day">Tue</h3>
+          <img class="forecast-icon" src="assets/partly.png" alt="Partly cloudy">
+          <p class="forecast-max">33°C</p>
+          <p class="forecast-min">21°C</p>
+        </li>
+        <li class="forecast-card">
+          <h3 class="forecast-day">Wed</h3>
+          <img class="forecast-icon" src="assets/rain.png" alt="Rain">
+          <p class="forecast-max">31°C</p>
+          <p class="forecast-min">20°C</p>
+        </li>
+        <li class="forecast-card">
+          <h3 class="forecast-day">Thu</h3>
+          <img class="forecast-icon" src="assets/sunny.png" alt="Sunny">
+          <p class="forecast-max">32°C</p>
+          <p class="forecast-min">21°C</p>
+        </li>
+        <li class="forecast-card">
+          <h3 class="forecast-day">Fri</h3>
+          <img class="forecast-icon" src="assets/storm.png" alt="Thunderstorm">
+          <p class="forecast-max">30°C</p>
+          <p class="forecast-min">20°C</p>
+        </li>
+        <li class="forecast-card">
+          <h3 class="forecast-day">Sat</h3>
+          <img class="forecast-icon" src="assets/rain.png" alt="Rain">
+          <p class="forecast-max">29°C</p>
+          <p class="forecast-min">19°C</p>
+        </li>
+        <li class="forecast-card">
+          <h3 class="forecast-day">Sun</h3>
+          <img class="forecast-icon" src="assets/partly.png" alt="Partly cloudy">
+          <p class="forecast-max">31°C</p>
+          <p class="forecast-min">20°C</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
