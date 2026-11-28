@@ -307,3 +307,59 @@ dd { font-size: calc(29 * var(--u)); font-weight: 700; }
   .forecast-max { margin-top: 5px; font-size: 16px; }
   .forecast-min { font-size: 13px; }
 }
+
+/* ---------- Week 2: unit toggle, form message, condition tint ---------- */
+.dashboard { position: relative; z-index: 1; }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+  transition: background 0.6s ease;
+}
+
+body[data-weather="sunny"]::before { background: rgb(255 190 40 / 18%); }
+body[data-weather="cloudy"]::before,
+body[data-weather="partly-cloudy"]::before { background: rgb(110 125 150 / 28%); }
+body[data-weather="rain"]::before { background: rgb(15 30 70 / 45%); }
+body[data-weather="thunderstorm"]::before { background: rgb(10 10 40 / 55%); }
+
+.form-message {
+  min-height: calc(30 * var(--u));
+  margin-top: 8px;
+  padding-left: calc(34 * var(--u));
+  color: var(--yellow);
+  font-size: calc(20 * var(--u));
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgb(0 30 90 / 60%);
+}
+
+/* Sits beside the search bar (out of the flow) so the cards stay aligned
+   with the frames painted in the background image */
+.unit-bar {
+  position: absolute;
+  top: calc(160 * var(--u));
+  right: 0;
+}
+
+/* overrides the global button style (no search icon, smaller pill) */
+.unit-toggle {
+  width: auto;
+  min-width: 0;
+  padding: calc(10 * var(--u)) calc(20 * var(--u));
+  border: 1px solid rgb(255 255 255 / 55%);
+  background: rgb(10 100 210 / 38%);
+  font: 600 calc(18 * var(--u)) "Cinzel", Georgia, serif;
+  white-space: nowrap;
+}
+.unit-toggle::before { content: none; }
+.unit-toggle:hover { background: rgb(10 92 245 / 70%); }
+
+@media (max-width: 700px) {
+  .form-message { padding-left: 14px; font-size: 12px; min-height: 18px; }
+  .unit-bar { position: static; display: flex; justify-content: center; margin-top: 12px; }
+  .unit-toggle { padding: 6px 14px; font-size: 12px; }
+}
